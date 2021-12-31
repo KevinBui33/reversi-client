@@ -1,0 +1,30 @@
+.boardContainer {
+  border: 1px black solid;
+  display: inline-grid;
+  grid-template-columns: repeat(8, 100px);
+  grid-template-rows: repeat(8, 100px);
+  background: rgb(46, 174, 82);
+}
+
+.tile {
+  border: 1px black solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discWhite {
+  height: 80px;
+  width: 80px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.discBlack {
+  height: 80px;
+  width: 80px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+}
