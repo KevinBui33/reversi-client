@@ -4,7 +4,7 @@ import styles from "../styles/Board.module.css";
 
 interface BoardTileProps {
   piece: string;
-  color?: boolean | null;
+  color?: string | null;
 }
 
 const BoardTile: React.FC<BoardTileProps> = ({ piece, color }) => {
