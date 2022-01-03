@@ -7,12 +7,25 @@ function App() {
   const [light, setlight] = useState(0);
   const [dark, setdark] = useState(0);
   const [board, setboard] = useState([]);
+  const [playerTurn, setplayerTurn] = useState("");
 
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_SERVER_URL}/init`)
-      .then((res) => setboard(res.data))
-      .catch((e) => console.error("Could not get init board"));
+      .then((res) => {
+        console.log(res.data);
+        let { board, lightPieces, darkPieces, startTurn } = res.data;
+
+        setboard(board);
+        setlight(lightPieces.length);
+        setdark(darkPieces.length);
+        setplayerTurn(startTurn);
+      })
+      .catch((e) =>
+        console.error(
+          `Could not get init board from URL:${process.env.REACT_APP_SERVER_URL}/init}`
+        )
+      );
   }, []);
 
   return (
@@ -21,7 +34,7 @@ function App() {
       <p>{light}</p>
       <h2>Black</h2>
       <p>{dark}</p>
-      <Board board={board} />
+      <Board board={board} playerTurn={playerTurn} />
     </div>
   );
 }
