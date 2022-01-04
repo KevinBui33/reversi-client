@@ -28,3 +28,12 @@
   border-radius: 50%;
   display: inline-block;
 }
+
+.move {
+  height: 80px;
+  width: 80px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 25%;
+}
